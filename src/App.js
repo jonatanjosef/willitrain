@@ -16,7 +16,7 @@ class App extends React.Component {
     error: undefined
   }
 
-  //Skapar en method som hämtar APIn med min nyckel och deklarerar stad och land variabler som är kopplat till mitt form / input-fält
+  //Skapar en metod som hämtar APIn med min nyckel och deklarerar stad och land variabler som är kopplat till mitt form / input-fält
   getWeather = async (e) => {
     e.preventDefault();
     const city = e.target.elements.city.value;
@@ -25,11 +25,13 @@ class App extends React.Component {
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric
     `);
 
+    //Spara API-datan i en variabel med .json funktion
     const data = await api_call.json();
 
     //Ser så att värderna är korrekta och inte tomma
     if (city && country) {
-      console.log(data);
+
+      //Hämtar ut API-nycklarna
       this.setState({
         temperature: data.main.temp,
         city: data.name,

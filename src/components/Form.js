@@ -1,5 +1,6 @@
 import React from "react";
 
+//använder props.getWeather för att nå "onSubmit"
 const Form = props => (
     <form onSubmit={props.getWeather}>
         <input type="text" name="city" placeholder="city"></input>
